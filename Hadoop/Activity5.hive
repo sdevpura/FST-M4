@@ -1,0 +1,31 @@
+# To see the data that has been loaded into the employee table, use the SELECT query:
+hive> SELECT * FROM employee;
+
+
+# To count the number of rows in the table, we can use:
+hive> SELECT COUNT(*) FROM employee;
+
+# A simple GET request from HDFS
+hive> SELECT * FROM employee;
+
+# Column operations
+hive> SELECT  id, name FROM employee;
+
+# Row operation
+hive> SELECT * FROM employee WHERE salary > 30000;
+
+# Column operation that need aggregation
+hive> SELECT count(*) FROM employee; 
+
+#Exports to HDFS directory
+hive> INSERT OVERWRITE DIRECTORY '/user/surbhi/output/export'
+    > ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+    > SELECT * FROM employee;
+
+# To execute DFS commands from Hive CLI:
+hive> dfs -ls /user/surbhi/output/export;
+
+#Exports to LOCAL directory
+hive> INSERT OVERWRITE LOCAL DIRECTORY 'root/export'
+    > ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+    > SELECT * FROM employee;

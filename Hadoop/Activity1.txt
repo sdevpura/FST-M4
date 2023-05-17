@@ -1,0 +1,164 @@
+------------------------------------------------------------
+Activity 1 Commands used:
+root@756dc2895828:~# vim txtFile.txt
+root@756dc2895828:~# vim csvFile.csv
+root@756dc2895828:~# hdfs dfs -mkdir /user/surbhi
+root@756dc2895828:~# hdfs dfs -put ./txtFile.txt /user/surbhi
+root@756dc2895828:~# hdfs dfs -put ./csvFile.csv /user/surbhi
+root@756dc2895828:~# hdfs dfs -stat "type:%F permissions:%a %u:%g size:%b name:%n" /user/surbhi/txtFile.txt
+root@756dc2895828:~# hdfs dfs -stat "type:%F permissions:%a %u:%g size:%b name:%n" /user/surbhi/csvFile.csv
+
+
+------------------------------------------------------------
+
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\01268I744> docker container run -it -p 9870:9870 -p 8088:8088 registry.gitlab.com/training-support/training-environments:hadoop-v1 bash
+Unable to find image 'registry.gitlab.com/training-support/training-environments:hadoop-v1' locally
+hadoop-v1: Pulling from training-support/training-environments
+608211a262ee: Pulling fs layer
+61306300393f: Pulling fs layer
+0a7687d214cc: Pulling fs layer
+38af72466a03: Waiting
+42e5bf010d2f: Waiting
+152c932e670e: Waiting
+188471d11260: Waiting
+0c4d98300576: Waiting                                                                                                   7ade5da59602: Pulling fs layer
+401ba29d0022: Pulling fs layer
+33ea0ee68024: Pulling fs layer
+29dd0dd410fc: Pull complete
+9f851d325110: Pull complete
+087be0e1d8dd: Pull complete
+4ca545ee6d5d: Pull complete
+f4e2efc83ea9: Pull complete
+679f49e234e6: Pull complete
+a8b7c27a1dab: Pull complete
+f125ae3af3cf: Pull complete
+634a4b3fdf6a: Pull complete
+6c69c048807f: Pull complete
+9d4858348dfb: Pull complete
+5478d1799d81: Pull complete
+2cbb978e5135: Pull complete
+fd567e0cceef: Pull complete
+4cd4f55fc49e: Pull complete
+adb203486202: Pull complete
+70aba3b36a86: Pull complete
+003094eee177: Pull complete
+660125a6931d: Pull complete
+2dd0da4b85e4: Pull complete
+2806480c5939: Pull complete
+204f9ce25854: Pull complete
+4fb3d1127c51: Pull complete
+1f15937e8a9c: Pull complete
+32f5c02219a3: Pull complete
+b6fef507dc43: Pull complete
+de42c5e97c99: Pull complete
+fb410e647acf: Pull complete
+f1be110c9c3f: Pull complete
+Digest: sha256:9e95963f722718b4394303f79e3103fed5c26c90a924c5fb94341f723ab8b810
+Status: Downloaded newer image for registry.gitlab.com/training-support/training-environments:hadoop-v1
+/
+ * Starting OpenBSD Secure Shell server sshd                                                                     [ OK ]
+Waiting for hdfs to exit from safemode
+Safe mode is OFF
+Started
+root@756dc2895828:/# docker exec -it containerName bash
+bash: docker: command not found
+root@756dc2895828:/# $HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver
+WARNING: Use of this script to start the MR JobHistory daemon is deprecated.
+WARNING: Attempting to execute replacement "mapred --daemon start" instead.
+root@756dc2895828:/# jps
+353 NameNode
+258 ResourceManager
+581 DataNode
+871 SecondaryNameNode
+1577 Jps
+1530 JobHistoryServer
+526 NodeManager
+root@756dc2895828:/# cd ~
+root@756dc2895828:~# ls
+root@756dc2895828:~# vim txtFile.txt
+root@756dc2895828:~# vim csvFile.csv
+root@756dc2895828:~# ls -l
+total 8
+-rw-r--r-- 1 root root 527 May  9 06:09 csvFile.csv
+-rw-r--r-- 1 root root 157 May  9 06:08 txtFile.txt
+root@756dc2895828:~# cd /
+root@756dc2895828:/# ls -l
+total 100
+drwxr-xr-x   1 root root  4096 Aug 23  2021 bin
+drwxr-xr-x   2 root root  4096 Apr 24  2018 boot
+-rw-r--r--   1 root root 19974 Aug 23  2021 derby.log
+drwxr-xr-x   5 root root   360 May  9 05:46 dev
+drwxr-xr-x   1 root root  4096 May  9 05:46 etc
+drwxr-xr-x   2 root root  4096 Apr 24  2018 home
+drwxr-xr-x   1 root root  4096 Aug 23  2021 lib
+drwxr-xr-x   2 root root  4096 Jul 23  2021 lib64
+drwxr-xr-x   2 root root  4096 Jul 23  2021 media
+drwxr-xr-x   5 root root  4096 Aug 23  2021 metastore_db
+drwxr-xr-x   2 root root  4096 Jul 23  2021 mnt
+drwxr-xr-x   2 root root  4096 Jul 23  2021 opt
+dr-xr-xr-x 327 root root     0 May  9 05:46 proc
+drwx------   1 root root  4096 May  9 06:09 root
+drwxr-xr-x   1 root root  4096 Aug 23  2021 run
+drwxr-xr-x   1 root root  4096 Aug 23  2021 sbin
+drwxr-xr-x   2 root root  4096 Jul 23  2021 srv
+dr-xr-xr-x  11 root root     0 May  9 05:46 sys
+drwxrwxrwt   1 root root  4096 May  9 05:51 tmp
+drwxr-xr-x   1 root root  4096 Jul 23  2021 usr
+drwxr-xr-x   1 root root  4096 Jul 23  2021 var
+root@756dc2895828:/# cd root
+root@756dc2895828:~# hdfs dfs -mkdir /user/surbhi
+root@756dc2895828:~# ls -l
+total 8
+-rw-r--r-- 1 root root 527 May  9 06:09 csvFile.csv
+-rw-r--r-- 1 root root 157 May  9 06:08 txtFile.txt
+root@756dc2895828:~# cd /
+root@756dc2895828:/# ls -l
+total 100
+drwxr-xr-x   1 root root  4096 Aug 23  2021 bin
+drwxr-xr-x   2 root root  4096 Apr 24  2018 boot
+-rw-r--r--   1 root root 19974 Aug 23  2021 derby.log
+drwxr-xr-x   5 root root   360 May  9 05:46 dev
+drwxr-xr-x   1 root root  4096 May  9 05:46 etc
+drwxr-xr-x   2 root root  4096 Apr 24  2018 home
+drwxr-xr-x   1 root root  4096 Aug 23  2021 lib
+drwxr-xr-x   2 root root  4096 Jul 23  2021 lib64
+drwxr-xr-x   2 root root  4096 Jul 23  2021 media
+drwxr-xr-x   5 root root  4096 Aug 23  2021 metastore_db
+drwxr-xr-x   2 root root  4096 Jul 23  2021 mnt
+drwxr-xr-x   2 root root  4096 Jul 23  2021 opt
+dr-xr-xr-x 328 root root     0 May  9 05:46 proc
+drwx------   1 root root  4096 May  9 06:09 root
+drwxr-xr-x   1 root root  4096 Aug 23  2021 run
+drwxr-xr-x   1 root root  4096 Aug 23  2021 sbin
+drwxr-xr-x   2 root root  4096 Jul 23  2021 srv
+dr-xr-xr-x  11 root root     0 May  9 05:46 sys
+drwxrwxrwt   1 root root  4096 May  9 05:51 tmp
+drwxr-xr-x   1 root root  4096 Jul 23  2021 usr
+drwxr-xr-x   1 root root  4096 Jul 23  2021 var
+root@756dc2895828:/# cd root
+root@756dc2895828:~# hdfs dfs -ls /user
+Found 2 items
+drwxr-xr-x   - root supergroup          0 2021-08-23 10:44 /user/root
+drwxr-xr-x   - root supergroup          0 2023-05-09 06:17 /user/surbhi
+root@756dc2895828:~# hdfs dfs -put ./txtFile.txt /user/surbhi
+root@756dc2895828:~# hdfs dfs -ls /user/surbhi
+Found 1 items
+-rw-r--r--   1 root supergroup        157 2023-05-09 06:20 /user/surbhi/txtFile.txt
+root@756dc2895828:~# hdfs dfs -put ./csvFile.csv /user/surbhi
+root@756dc2895828:~# hdfs dfs -ls /user/surbhi
+Found 2 items
+-rw-r--r--   1 root supergroup        527 2023-05-09 06:21 /user/surbhi/csvFile.csv
+-rw-r--r--   1 root supergroup        157 2023-05-09 06:20 /user/surbhi/txtFile.txt
+root@756dc2895828:~# hdfs dfs -stat "type:%F permissions:%a %u:%g size:%b name:%n" /user/surbhi/txtFile.txt
+type:regular file permissions:644 root:supergroup size:157 name:txtFile.txt
+root@756dc2895828:~# hdfs dfs -stat "type:%F permissions:%a %u:%g size:%b name:%n" /user/surbhi/csvFile.csv
+type:regular file permissions:644 root:supergroup size:527 name:csvFile.csv
+root@756dc2895828:~#
+
+
+
